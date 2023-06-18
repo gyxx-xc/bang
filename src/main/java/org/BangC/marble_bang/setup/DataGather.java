@@ -47,8 +47,6 @@ public class DataGather {
             );
         }
     }
-
-    // 方块状态文件及方块模型文件
     public static class StateProvider extends BlockStateProvider {
         public StateProvider(PackOutput gen, ExistingFileHelper helper) {
             super(gen, MarbleBang.MOD_ID, helper);

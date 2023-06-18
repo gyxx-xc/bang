@@ -1,6 +1,9 @@
 package org.BangC.marble_bang.setup;
 
+import net.minecraft.network.chat.Component;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.BlockItem;
+import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 import net.minecraftforge.event.CreativeModeTabEvent;
@@ -20,10 +23,21 @@ public class Registration {
     }
 
     public static void addCreativeTab(CreativeModeTabEvent.BuildContents event){
-        if(event.getTab() == ModTab.MOD_TAB){
+        if(event.getTab() == MOD_TAB){
             event.accept(TWEAK_ROD);
             event.accept(RAIL_HOLDER_ITEM);
         }
+    }
+
+    public static CreativeModeTab MOD_TAB;
+    public static void registerCreativeModeTabs(CreativeModeTabEvent.Register event){
+        MOD_TAB = event.registerCreativeModeTab(
+                new ResourceLocation(
+                        MarbleBang.MOD_ID,
+                        "mod_tab"
+                ),
+                builder -> builder.title(Component.translatable("mod_tab"))
+        );
     }
 
     private static RegistryObject<Item> blockItem(RegistryObject<Block> block){
