@@ -20,8 +20,6 @@ public class TweakRod extends Item {
     public InteractionResult useOn(UseOnContext context) {
          Block block = context.getLevel().getBlockState(context.getClickedPos()).getBlock();
          if(block instanceof RailHolder railHolder){
-             railHolder.aaa();
-             railHolder.aaa();
              context.getClickLocation();
              context.getLevel().addParticle(ParticleTypes.BUBBLE, 0, 0, 0, 0, 0, 0);
              return InteractionResult.SUCCESS;

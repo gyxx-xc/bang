@@ -21,6 +21,7 @@ import net.minecraftforge.registries.RegistryObject;
 import org.BangC.marble_bang.MarbleBang;
 import org.BangC.marble_bang.block.RailHolder;
 import org.BangC.marble_bang.block.RailHolderBlockEntity;
+import org.BangC.marble_bang.block.RailHolderBlockRender;
 import org.BangC.marble_bang.entity.Marble.MarbleEntity;
 import org.BangC.marble_bang.entity.Marble.MarbleModel;
 import org.BangC.marble_bang.entity.Marble.MarbleRender;
@@ -57,6 +58,7 @@ public class Registration {
     @SubscribeEvent
     public static void onRegisterRenderer(EntityRenderersEvent.RegisterRenderers event) {
         event.registerEntityRenderer(Registration.MARBLE.get(), MarbleRender::new);
+        event.registerBlockEntityRenderer(Registration.RAIL_HOLDER_ENTITY.get(), RailHolderBlockRender::new);
     }
 
     public static void register(IEventBus modEventBus){
