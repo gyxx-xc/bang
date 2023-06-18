@@ -10,6 +10,7 @@ import net.minecraft.client.model.geom.builders.*;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.Entity;
 import org.BangC.marble_bang.MarbleBang;
+import org.jetbrains.annotations.NotNull;
 import org.joml.Matrix3f;
 import org.joml.Matrix4f;
 import org.joml.Vector3f;
@@ -29,7 +30,7 @@ public class MarbleModel<T extends Entity> extends EntityModel<T> {
         MeshDefinition meshdefinition = new MeshDefinition();
         PartDefinition partdefinition = meshdefinition.getRoot();
 
-        PartDefinition bb_main = partdefinition.addOrReplaceChild("bb_main",
+        partdefinition.addOrReplaceChild("bb_main",
                 CubeListBuilder.create()
                         .texOffs(0, 0)
                         .addBox(-8F, -8F, -8F, 8.0f, 8.0f, 8.0f,
@@ -39,11 +40,11 @@ public class MarbleModel<T extends Entity> extends EntityModel<T> {
         return LayerDefinition.create(meshdefinition, 16, 16);
     }
     @Override
-    public void setupAnim(Entity entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
+    public void setupAnim(@NotNull Entity entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
     }
 
     @Override
-    public void renderToBuffer(PoseStack poseStack, VertexConsumer vertexConsumer,
+    public void renderToBuffer(PoseStack poseStack, @NotNull VertexConsumer vertexConsumer,
                                int packedLight, int packedOverlay,
                                float red, float green, float blue, float alpha) {
         poseStack.pushPose();

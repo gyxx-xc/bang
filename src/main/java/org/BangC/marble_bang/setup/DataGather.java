@@ -8,7 +8,6 @@ import net.minecraftforge.common.data.ExistingFileHelper;
 import net.minecraftforge.common.data.LanguageProvider;
 import net.minecraftforge.data.event.GatherDataEvent;
 import org.BangC.marble_bang.MarbleBang;
-import org.BangC.marble_bang.block.RailHolder;
 import org.BangC.marble_bang.item.TweakRod;
 
 public class DataGather {

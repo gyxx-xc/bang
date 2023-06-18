@@ -1,7 +1,6 @@
 package org.BangC.marble_bang.block;
 
 import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.material.Material;
 
 public class RailHolder extends Block {
@@ -9,4 +8,5 @@ public class RailHolder extends Block {
     public RailHolder() {
         super(Properties.of(Material.METAL));
     }
+    public void aaa(){}
 }

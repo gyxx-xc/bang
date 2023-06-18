@@ -10,6 +10,7 @@ import net.minecraft.client.renderer.texture.OverlayTexture;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.Entity;
 import org.BangC.marble_bang.MarbleBang;
+import org.jetbrains.annotations.NotNull;
 
 public class MarbleRender<T extends Entity> extends EntityRenderer<T> {
     public static final ResourceLocation TEXTURE =
@@ -21,13 +22,13 @@ public class MarbleRender<T extends Entity> extends EntityRenderer<T> {
     }
 
     @Override
-    public ResourceLocation getTextureLocation(Entity p_114482_) {
+    public @NotNull ResourceLocation getTextureLocation(@NotNull Entity p_114482_) {
         return TEXTURE;
     }
 
     @Override
-    public void render(T entityIn, float entityYaw, float partialTicks,
-                       PoseStack poseStackIn, MultiBufferSource bufferSourceIn, int packedLightIn) {
+    public void render(@NotNull T entityIn, float entityYaw, float partialTicks,
+                       @NotNull PoseStack poseStackIn, @NotNull MultiBufferSource bufferSourceIn, int packedLightIn) {
 
         super.render(entityIn, entityYaw, partialTicks, poseStackIn, bufferSourceIn, packedLightIn);
         poseStackIn.pushPose();

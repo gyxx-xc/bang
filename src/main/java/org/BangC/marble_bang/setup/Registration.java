@@ -22,7 +22,6 @@ import org.BangC.marble_bang.entity.Marble.MarbleEntity;
 import org.BangC.marble_bang.entity.Marble.MarbleModel;
 import org.BangC.marble_bang.entity.Marble.MarbleRender;
 import org.BangC.marble_bang.item.TweakRod;
-import org.openjdk.nashorn.internal.runtime.regexp.joni.constants.EncloseType;
 
 
 @Mod.EventBusSubscriber(modid = MarbleBang.MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD)
