@@ -8,6 +8,8 @@ import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.entity.BlockEntity;
+import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraftforge.client.event.EntityRenderersEvent;
 import net.minecraftforge.event.CreativeModeTabEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -18,10 +20,13 @@ import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import org.BangC.marble_bang.MarbleBang;
 import org.BangC.marble_bang.block.RailHolder;
+import org.BangC.marble_bang.block.RailHolderBlockEntity;
 import org.BangC.marble_bang.entity.Marble.MarbleEntity;
 import org.BangC.marble_bang.entity.Marble.MarbleModel;
 import org.BangC.marble_bang.entity.Marble.MarbleRender;
 import org.BangC.marble_bang.item.TweakRod;
+
+import javax.swing.*;
 
 
 @Mod.EventBusSubscriber(modid = MarbleBang.MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD)
@@ -58,6 +63,7 @@ public class Registration {
         BLOCK.register(modEventBus);
         ITEM.register(modEventBus);
         ENTITY_TYPE.register(modEventBus);
+        BLOCK_ENTITY.register(modEventBus);
     }
 
     private static RegistryObject<Item> blockItem(RegistryObject<Block> block){
@@ -67,13 +73,17 @@ public class Registration {
     private static final DeferredRegister<Item> ITEM = DeferredRegister.create(ForgeRegistries.ITEMS, MarbleBang.MOD_ID);
     private static final DeferredRegister<Block> BLOCK = DeferredRegister.create(ForgeRegistries.BLOCKS, MarbleBang.MOD_ID);
     private static final DeferredRegister<EntityType<?>> ENTITY_TYPE = DeferredRegister.create(ForgeRegistries.ENTITY_TYPES, MarbleBang.MOD_ID);
+    private static final DeferredRegister<BlockEntityType<?>> BLOCK_ENTITY = DeferredRegister.create(ForgeRegistries.BLOCK_ENTITY_TYPES, MarbleBang.MOD_ID);
 
     /*item*************************************************************************************************************/
     public static final RegistryObject<Item> TWEAK_ROD = ITEM.register(TweakRod.ID, TweakRod::new);
     /*block************************************************************************************************************/
+
+    /*block entity*****************************************************************************************************/
     public static final RegistryObject<Block> RAIL_HOLDER = BLOCK.register(RailHolder.ID, RailHolder::new);
     public static final RegistryObject<Item> RAIL_HOLDER_ITEM = blockItem(RAIL_HOLDER);
-
+    public static final RegistryObject<BlockEntityType<RailHolderBlockEntity>> RAIL_HOLDER_ENTITY = BLOCK_ENTITY.register(RailHolder.ID,
+            () -> BlockEntityType.Builder  .of(RailHolderBlockEntity::new, RAIL_HOLDER.get())  .build(null));
     /*entity***********************************************************************************************************/
     public static final RegistryObject<EntityType<MarbleEntity>> MARBLE = ENTITY_TYPE.register("marble",
             () -> EntityType.Builder
